@@ -19,7 +19,7 @@ engine = create_engine(
 with engine.connect() as conn:
     result = conn.execute(text("SELECT DATABASE();"))
     for row in result:
-        print("✅ Connected to Database:", row[0])
+        print(" Connected to Database:", row[0])
 
 
 # 2. Load and Prepare the Dataset
@@ -37,7 +37,7 @@ print(df[["Company", "Price_euros", "Price_INR", "Weight_kg"]].head())
 
 # 3. Store Cleaned Data into MySQL
 df.to_sql("laptops_cleaned_inr", con=engine, if_exists="replace", index=False)
-print("✅ Cleaned data stored in MySQL (table: laptops_cleaned_inr)")
+print(" Cleaned data stored in MySQL (table: laptops_cleaned_inr)")
 
 df = pd.read_sql("SELECT * FROM laptops_cleaned_inr", con=engine)
 print("Pulled from MySQL. Shape:", df.shape)
@@ -87,7 +87,7 @@ plt.show()
 
 # Laptops in the Mid-Range (₹50k–₹80k)
 mid_range = df[(df["Price_INR"] >= 50000) & (df["Price_INR"] <= 80000)]
-print(f"\n💻 Mid-range laptops (₹50k–₹80k): {len(mid_range)} models found")
+print(f"\n Mid-range laptops (₹50k–₹80k): {len(mid_range)} models found")
 print(mid_range[["Company", "Product", "Price_INR", "Ram"]].head())
 
 # Operating System Distribution
@@ -107,6 +107,6 @@ plt.show()
 
 # 5. Save Outputs
 mid_range.to_csv("filtered_laptops.csv", index=False)
-print("✅ Filtered mid-range dataset saved (filtered_laptops.csv)")
+print(" Filtered mid-range dataset saved (filtered_laptops.csv)")
 
-print("\n✨ Analysis Complete! All plots and filtered data have been saved.")
+print("\n Analysis Complete! All plots and filtered data have been saved.")

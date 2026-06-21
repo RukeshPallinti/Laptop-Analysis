@@ -109,6 +109,11 @@ Through the analysis, the project explores:
 
 ---
 
+## Dashboard Preview
+
+<img width="938" height="535" alt="dashboard" src="https://github.com/user-attachments/assets/5f71407b-eb69-49e2-81b0-1cb378550ccb" />
+
+
 ## Future Improvements
 
 * Build a machine learning model to predict laptop prices.
